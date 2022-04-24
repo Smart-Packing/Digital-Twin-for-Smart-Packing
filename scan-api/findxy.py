@@ -4,8 +4,6 @@ import depthai as dai
 
 
 def find_x_y():
-    webcam = True
-    path = '1.jpg'
 
     scale = 3
     wP = 210 *scale
@@ -38,11 +36,11 @@ def find_x_y():
     # Connect to device and start pipeline
     with dai.Device(pipeline) as device:
 
-        video = device.getOutputQueue('video')
+        
         preview = device.getOutputQueue('preview')
 
         while True:
-            videoFrame = video.get()
+           
             previewFrame = preview.get()
 
 
@@ -51,27 +49,7 @@ def find_x_y():
             # Show 'preview' frame as is (already in correct format, no copy is made)
             # cv2.imshow("preview", previewFrame.getFrame())
             img = previewFrame.getFrame()
-            # img = cv2.imread("depthmap3.jpeg")
-
-
-
-
-            # Get BGR frame from NV12 encoded video frame to show with opencv
-            # Visualizing the frame on slower hosts might have overhead
-            # cv2.imshow("video", videoIn.getCvFrame())
-            #
-            # if cv2.waitKey(1) == ord('q'):
-            #     break
-            # img = videoIn.getCvFrame()
-            #
-            # print(img)
-            #
-    # while True:
-    #         if webcam:success,img = cap.read()
-    #         else: img = cv2.imread(path)
-
-
-            # break
+    
 
             imgContours , conts = utils.getContours(img,minArea=50000,filter=4)
             # print(conts)
