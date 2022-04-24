@@ -14,12 +14,22 @@ The algorithm is quite simple:
 3.   Camera in the container scans if the package is in place and sends a signal that the next can come
 4.   Repeat until the packing is complete
 
-### X-Y Dimension detection of object
+
+### Front End using ReactJS
+
+https://user-images.githubusercontent.com/17596445/164976385-b2826cdb-f50a-4b31-bd77-fcd7ceaaa73a.mp4
+
+
+### X-Y Dimension detection of object using DepthAI
 Scanning x and y dimension of the object using the camera
 
 https://user-images.githubusercontent.com/6372010/164974398-499bc5e8-b3c1-4fa1-8c3d-bc0c7e5b96e8.mov
 
 
-### Truck Route Planning using Vehicle Routing Problem, Travelling Salesman Pproblem and Smart Packaging Solution using 2D Knapsack Problem
+### Truck Route Planning using Vehicle Routing Problem, Travelling Salesman Problem and Smart Packaging Solution using 2D Knapsack Problem
+Backend Services used: Python Flask, SQLAchemy
 
 <img width="1096" alt="Screenshot 2022-04-24 at 14 01 06" src="https://user-images.githubusercontent.com/17596445/164975469-8ce897b3-1b73-492c-80ae-5b07ec68f5a1.png">
+
+<img width="1439" alt="Screenshot 2022-04-24 at 14 10 45" src="https://user-images.githubusercontent.com/17596445/164976148-bbf213eb-7937-440b-8ef7-b853a818f3f0.png">
+
