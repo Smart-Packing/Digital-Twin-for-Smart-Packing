@@ -5,7 +5,7 @@ from models import db, package
 import seeder
 import sys
 sys.path.insert(0, '..')
-from prev_impl import truckSack
+from src import knapsack
 
 
 @app.before_request
@@ -41,16 +41,19 @@ def main():
             package_dimension = i.depth * i.width * i.height
             destination = i.destination
 
-            trucks.append(i.truck_capacity)
+            if i.truck_capacity is not 0:
+                trucks.append(i.truck_capacity)
             packagesDetails_dim.append(package_dimension)
             packagesDetails_dest.append(destination)
 
         n = len(packagesDetails_dest)
 
-        result = 0
+        result = ""
         # for i in range(len(packagesDetails)):
-        for x in trucks:
-            result = truckSack.truckSack(x, packagesDetails_dim, packagesDetails_dest, n)
+        # for x in trucks:
+        #     result = truckSack.truckSack(x, packagesDetails_dim, packagesDetails_dest, n)
+        
+        result = knapsack.start_smart_packing(packagesDetails_dim, packagesDetails_dest, trucks)
         
         print(result)
             
