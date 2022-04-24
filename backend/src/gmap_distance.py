@@ -10,7 +10,7 @@ location_list = []
 def create_data():
   """Creates the data."""
   data = {}
-  data['API_key'] = '--------------' ### REPLACE WITH YOUR OWN API KEY
+  data['API_key'] = 'AIzaSyBjgHP7hTu_S4FiR7JmHoWX9T_sWh64Oz0' ### REPLACE WITH YOUR OWN API KEY
   data['addresses'] = ['3610+Hacks+Cross+Rd+Memphis+TN', # depot
                        '1921+Elvis+Presley+Blvd+Memphis+TN',
                        '149+Union+Avenue+Memphis+TN',

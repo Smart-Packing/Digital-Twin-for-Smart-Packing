@@ -6,6 +6,7 @@ import seeder
 import sys
 sys.path.insert(0, '..')
 from src import knapsack
+from src import vrp
 
 
 @app.before_request
@@ -54,8 +55,11 @@ def main():
         #     result = truckSack.truckSack(x, packagesDetails_dim, packagesDetails_dest, n)
         
         result = knapsack.start_smart_packing(packagesDetails_dim, packagesDetails_dest, trucks)
-        
+        print("\n\n")
         print(result)
+        print("\n\n")
+        vrp.start_truck_routing_opt()
+        print("\n----THE END----\n")
             
         #TODO: call gmapDistance
         return "IS WORKING"

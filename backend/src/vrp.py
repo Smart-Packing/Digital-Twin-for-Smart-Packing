@@ -1,6 +1,6 @@
 from ortools.constraint_solver import routing_enums_pb2
 from ortools.constraint_solver import pywrapcp
-from gmap_distance import run_gmap_distance
+from .gmap_distance import run_gmap_distance
 import sys
 
 
@@ -39,7 +39,7 @@ def print_solution(data, manager, routing, solution, location_list):
 
 
 
-def main():
+def start_truck_routing_opt():
     """Entry point of the program."""
     # Instantiate the data problem.
     data, loc = create_data_model()
@@ -91,5 +91,5 @@ def main():
         print('No solution found !')
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
