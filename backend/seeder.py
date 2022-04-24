@@ -1,43 +1,22 @@
 from multiprocessing import connection
 import sqlite3
+from struct import pack
 from flask import Flask, render_template, request, url_for, redirect
 import sys
 from flask_sqlalchemy import SQLAlchemy
 import os
-
-def get_db_connection():
-    conn = sqlite3.connect('database.db')
-    return conn
+from models import db, package
 
 
 def create_db_table():
-    connection = get_db_connection()
-    # connection.row_factory = lambda cur, row: row[0]
+    package_obj1 = package(4, 4, 4, 4)
+    package_obj2 = package(3, 3, 3, 3)
+    package_obj3 = package(2, 2, 2, 2)
 
-    with open('schema.sql') as f:
-        connection.executescript(f.read())
+    db.session.add(package_obj1)
+    db.session.add(package_obj2)
+    db.session.add(package_obj3)
 
-    cur = connection.cursor()
+    db.session.commit()
 
-    cur.execute("INSERT INTO package (depth, width, height, destination) VALUES (?, ?, ?, ?)",
-                (4, 4, 4, 4)
-                )
-    cur.execute("INSERT INTO package (depth, width, height, destination) VALUES (?, ?, ?, ?)",
-                (3, 3, 3, 3)
-                )
-    cur.execute("INSERT INTO package (depth, width, height, destination) VALUES (?, ?, ?, ?)",
-                (2, 2, 2, 2)
-                )
-
-    volume = cur.execute("SELECT (depth * width * height) FROM package").fetchall()
-    dimensions = cur.execute("SELECT depth, width, height FROM package").fetchall()
-    distance = cur.execute("SELECT destination FROM package").fetchall()
-
-    print('dimensions', dimensions[0])
-    print('volume', volume[0][0])
-    print('distance', distance[0][0])
- 
-    data = [volume[0], dimensions, distance[0]]
-    connection.commit()
-    connection.close()
-    return data
+    db.session.close()

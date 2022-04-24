@@ -10,25 +10,25 @@ class package(db.Model):
         primary_key=True
     )
     depth = db.Column(
-        db.String(64),
+        db.Integer,
         index=False,
         unique=True,
         nullable=False
     )
     width = db.Column(
-        db.String(80),
+        db.Integer,
         index=True,
         unique=True,
         nullable=False
     )
     height = db.Column(
-        db.String(80),
+        db.Integer,
         index=True,
         unique=True,
         nullable=False
     )
     destination = db.Column(
-        db.String(80),
+        db.Integer,
         index=True,
         unique=True,
         nullable=False

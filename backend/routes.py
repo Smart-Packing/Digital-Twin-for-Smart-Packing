@@ -2,10 +2,17 @@ from flask import request, render_template, make_response
 from datetime import datetime as dt
 from flask import current_app as app
 from models import db, package
+import seeder
 import sys
 sys.path.insert(0, '..')
 from prev_impl import truckSack
 
+
+@app.before_request
+def before_request_func():
+    p = package.query.all()
+    if len(p) == 0:
+        seeder.create_db_table()
 
 @app.route('/test')
 def mains():
