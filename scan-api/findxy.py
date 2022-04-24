@@ -85,4 +85,3 @@ def find_x_y():
                 break
 
 
-find_x_y()
