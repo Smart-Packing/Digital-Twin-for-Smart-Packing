@@ -3,12 +3,6 @@ from ortools.sat.python import cp_model
 
 
 def start_smart_packing(vol_pack, dist_pack, cap_truck):
-
-    print(vol_pack)
-    print(dist_pack)
-    print(cap_truck)
-
-    
     data = {}
     data['weights'] = vol_pack
     data['values'] = dist_pack
@@ -54,30 +48,32 @@ def start_smart_packing(vol_pack, dist_pack, cap_truck):
     status = solver.Solve(model)
 
     if status == cp_model.OPTIMAL:
-        print(f'Total packed value: {solver.ObjectiveValue()}')
+        # print(f'Total packed value: {solver.ObjectiveValue()}')
+        print("\n\n")
         total_weight = 0
         for b in data['all_bins']:
-            print(f'Bin {b}')
+            print(f'Truck {b}')
             bin_weight = 0
             bin_value = 0
             for i in data['all_items']:
                 if solver.Value(x[i, b]) > 0:
                     print(
-                        f"Item {i} weight: {data['weights'][i]} value: {data['values'][i]}"
+                        f"Item {i} volume/dimensions: {data['weights'][i]}"
                     )
                     bin_weight += data['weights'][i]
                     bin_value += data['values'][i]
-            print(f'Packed bin weight: {bin_weight}')
-            print(f'Packed bin value: {bin_value}\n')
+            print(f'Packed bin volume/dimensions: {bin_weight}\n')
+            # print(f'Packed bin value: {bin_value}\n')
             total_weight += bin_weight
-        print(f'Total packed weight: {total_weight}')
+        print(f'Total packed Volume across all the trucks: {total_weight}')
     else:
         print('The problem does not have an optimal solution.')
     return "OK"
 
-
+'''
 if __name__ == '__main__':
     vol_pack = [48, 30, 42, 36, 36, 48, 42, 42, 36, 24, 30, 30, 42, 36, 36]
     dist_pack = [10, 30, 25, 50, 35, 30, 15, 40, 30, 35, 45, 10, 20, 30, 25]
     cap_truck = [100,  200, 100, 300, 100]
     x = start_smart_packing(vol_pack, dist_pack, cap_truck)
+'''
