@@ -1,12 +1,9 @@
 # Digital-Twin-for-Smart-Packing
 Smart supply chain logistic solution making sustainable deliveries.
 
-
-## TLDR
-The idea is to reform the loading of a truck at a warehouse. The idea is to maximize the utilization of the capacity of the truck/ship. Create the Digital Twin of the packages and put it into the Network of the Warehouse. The camera will scan the truck and the Edge Network will calculate, based on the Digital Twin of the packages and the truck, the optimal layout and the optimal way to load the truck.
-
 ## Description
-First of all, it is required to build an Edge Network at a warehouse. That Network contains all the Digital Twin information regarding all the packages that are inside the warehouse. By that, it is possible to be prepared for any incoming truck or ship. When one of them arrives at the warehouse, the container part should be scanned with an EdgeAI camera, which discovers the required parameters of the container. With that information and the packages that are required to be packed, it is possible to plan a maximum utilization (Knapsack-problem). After solving this problem, the next step is to create the packing plan.
+First of all, it is required to build an Edge Network at a warehouse. That Network contains all the Digital Twin information regarding all the packages that are inside the warehouse. By that, it is possible to be prepared for any incoming truck. When one of them arrives at the warehouse, the container part should be scanned with a DepthAI camera, which discovers the required parameters of the container. With that information and the packages that are required to be packed, it is possible to plan a maximum utilization (Knapsack-problem). After solving this problem, the next step is to create the route/path planning (Vehile Routing Problem), emulating how the trucks should make the deliveries to ensure least GHG emissoin.
+
 
 ## Algorithm
 1. Scan all Packages using DepthAI, OAK D-Lite. By scanning we refer to extraction of 3D dimensions (length, width and height) of the package so that we could calculate the volume. Also, select the destination location where each of these packages need to be delivered (to customers, let's say).
@@ -43,5 +40,14 @@ As you can see that we have various cities throughout the US, the Vehicle Routin
 This is the model of the Vehicle Routing Problem: The square on the center is the warehouse location where the truck starts it's journey and also comes back to this warehouse once all packages have been delivered to end the journey. The three lines (red, black and blue) signify the routes three trucks are going to take to make all the deliveres reliably, ensuring least emission.
 
 <img width="448" alt="VRP" src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Figure_illustrating_the_vehicle_routing_problem.png">
+
+
+## Resources
+1. Vehile Routing Problem = https://en.wikipedia.org/wiki/Vehicle_routing_problem
+2. Travelling Salesman Problem = https://en.wikipedia.org/wiki/Travelling_salesman_problem
+3. 0/1 Knapsack Problem = https://en.wikipedia.org/wiki/Knapsack_problem
+4. Bin Packing Problem = https://en.wikipedia.org/wiki/Bin_packing_problem
+
+Here, Knapsack = Bin = Vehicle = Truck/Container. 
 
 
