@@ -1,6 +1,6 @@
 # Running the Backend Flask App #
 
-## Our backend was created using Flask and our Database is using SqlLit. To assist with querying we used an ORM SqlAlchem ##
+## Our backend was created using Flask and our Database is using SqlLite. To assist with querying we used an ORM SqlAlchem ##
 ### To run the backend code: ###
   * If you haven't already clone the repo with ``` git clone https://github.com/Smart-Packing/Digital-Twin-for-Smart-Packing.git ```
   * Open a command line or terminal instance and navigate to the repo
