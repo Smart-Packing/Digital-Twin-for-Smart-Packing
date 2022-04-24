@@ -15,7 +15,6 @@ The algorithm is quite simple:
 4.   Repeat until the packing is complete
 
 ### X-Y Dimension detection of object
-
 Scanning x and y dimension of the object using the camera
 
 
