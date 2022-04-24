@@ -32,22 +32,27 @@ def main():
     try: 
         #Gather package details
         p = package.query.all()
-        packagesDetails = []
+        packagesDetails_dim = []
+        packagesDetails_dest = []
+        trucks = []
+
         for i in p:
             dimension = [i.depth,i.width,i.height]
-            volume = i.depth * i.width * i.height
+            package_dimension = i.depth * i.width * i.height
             destination = i.destination
-            packageDetails = [volume,dimension,destination]
-            packagesDetails.append(packageDetails)
 
-        #print('packageDetails', packagesDetails)
+            trucks.append(i.truck_capacity)
+            packagesDetails_dim.append(package_dimension)
+            packagesDetails_dest.append(destination)
+
+        n = len(packagesDetails_dest)
 
         result = 0
-        for i in range(len(packagesDetails)):
-            result = truckSack.truckSack(packagesDetails[i][0], packagesDetails[i][1], packagesDetails[i][2], i+1)
+        # for i in range(len(packagesDetails)):
+        for x in trucks:
+            result = truckSack.truckSack(x, packagesDetails_dim, packagesDetails_dest, n)
         
         print(result)
-
             
         #TODO: call gmapDistance
         return "IS WORKING"

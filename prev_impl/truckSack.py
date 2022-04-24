@@ -10,9 +10,9 @@ Truck has a volume in the order of L(cm)*B(cm)*H(cm) = V.
 
 def truckSack(V, p, d, n):
 	'''
-	d = distance in KM each package needs to travel
-	p = length * width * height; dimensions of each package (cm*cm*cm)
 	V = Length * Width * Height; Volume of Truck (CM*CM*CM)
+	p = length * width * height; dimensions of each package (cm*cm*cm)
+	d = distance in KM each package needs to travel
 	n = total number of items
 
 	Returns:

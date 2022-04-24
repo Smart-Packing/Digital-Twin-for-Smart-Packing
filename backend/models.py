@@ -12,30 +12,37 @@ class package(db.Model):
     depth = db.Column(
         db.Integer,
         index=False,
-        unique=True,
+       # unique=True,
         nullable=False
     )
     width = db.Column(
         db.Integer,
-        index=True,
-        unique=True,
+        index=False,
+       # unique=True,
         nullable=False
     )
     height = db.Column(
         db.Integer,
-        index=True,
-        unique=True,
+        index=False,
+        # unique=True,
         nullable=False
     )
     destination = db.Column(
         db.Integer,
-        index=True,
-        unique=True,
+        index=False,
+        # unique=True,
+        nullable=False
+    )
+    truck_capacity = db.Column(
+        db.Integer,
+        index=False,
+        # unique=True,
         nullable=False
     )
 
-    def __init__(self, depth, width, height,destination):
+    def __init__(self, depth, width, height, destination, truck_capacity):
         self.depth = depth
         self.width = width
         self.height = height
         self.destination = destination
+        self.truck_capacity = truck_capacity

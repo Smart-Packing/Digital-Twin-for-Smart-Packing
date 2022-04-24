@@ -9,9 +9,10 @@ from models import db, package
 
 
 def create_db_table():
-    package_obj1 = package(4, 4, 4, 4)
-    package_obj2 = package(3, 3, 3, 3)
-    package_obj3 = package(2, 2, 2, 2)
+    # l, b, h, dest, tc
+    package_obj1 = package(4, 4, 4, 5, 100)
+    package_obj2 = package(3, 3, 3, 6, 200)
+    package_obj3 = package(2, 2, 2, 7, 300)
 
     db.session.add(package_obj1)
     db.session.add(package_obj2)
