@@ -7,12 +7,15 @@ The idea is to reform the loading of a truck at a warehouse. The idea is to maxi
 
 ## Description
 First of all, it is required to build an Edge Network at a warehouse. That Network contains all the Digital Twin information regarding all the packages that are inside the warehouse. By that, it is possible to be prepared for any incoming truck or ship. When one of them arrives at the warehouse, the container part should be scanned with an EdgeAI camera, which discovers the required parameters of the container. With that information and the packages that are required to be packed, it is possible to plan a maximum utilization (Knapsack-problem). After solving this problem, the next step is to create the packing plan.
-The algorithm is quite simple:
 
-1.   Get the package
-2.   Deliver and put it into the container
-3.   Camera in the container scans if the package is in place and sends a signal that the next can come
-4.   Repeat until the packing is complete
+## Algorithm
+1. Scan all Packages using DepthAI, OAK D-Lite. By scanning we refer to extraction of 3D dimensions (length, width and height) of the package so that we could calculate the volume. Also, select the destination location where each of these packages need to be delivered (to customers, let's say).
+2. Use 2D Multiple Knapsack problem to load all the packages efficiently into the truck, ensuring minimum number of trucks are being used to reduce global emission such that each truck is "fully-packed".
+3. Use Vehicle Routing Problem, Travelling Salesman problem to calculate the route or the path the trucks have to take so that it ensures an optimized way to deliver all the packages with minimum travel distance thereby reducing GHG.
+4. By combining Step #2 and Step #3 we are ensuring each truck is:
+    1. fully packed (Bin packing problem) in the most efficient way and,
+    2. takes the most optimized route to deliver.
+   such that the total number of trucks being used is the minimum (hence, less emission of GHG).
 
 
 ### Front End using ReactJS
