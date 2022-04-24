@@ -14,5 +14,15 @@ The algorithm is quite simple:
 3.   Camera in the container scans if the package is in place and sends a signal that the next can come
 4.   Repeat until the packing is complete
 
+### X-Y Dimension detection of object
+
+Scanning x and y dimension of the object using the camera
+
+
+
+
+
+https://user-images.githubusercontent.com/6372010/164974398-499bc5e8-b3c1-4fa1-8c3d-bc0c7e5b96e8.mov
+
 
 
