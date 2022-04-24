@@ -1,39 +1,48 @@
 """Data models."""
 from app import db
 
-
-class User(db.Model):
-    """Data model for user accounts."""
+class package(db.Model):
+    """Data model for packages."""
 
     __tablename__ = 'package'
     id = db.Column(
         db.Integer,
         primary_key=True
     )
-    length = db.Column(
-        db.String(64),
+    depth = db.Column(
+        db.Integer,
         index=False,
-        unique=True,
+       # unique=True,
         nullable=False
     )
     width = db.Column(
-        db.String(80),
-        index=True,
-        unique=True,
+        db.Integer,
+        index=False,
+       # unique=True,
         nullable=False
     )
-    width = db.Column(
-        db.String(80),
-        index=True,
-        unique=True,
+    height = db.Column(
+        db.Integer,
+        index=False,
+        # unique=True,
         nullable=False
     )
     destination = db.Column(
-        db.String(80),
-        index=True,
-        unique=True,
+        db.Integer,
+        index=False,
+        # unique=True,
+        nullable=False
+    )
+    truck_capacity = db.Column(
+        db.Integer,
+        index=False,
+        # unique=True,
         nullable=False
     )
 
-    def __repr__(self):
-        return '<User {}>'.format(self.username)
+    def __init__(self, depth, width, height, destination, truck_capacity):
+        self.depth = depth
+        self.width = width
+        self.height = height
+        self.destination = destination
+        self.truck_capacity = truck_capacity

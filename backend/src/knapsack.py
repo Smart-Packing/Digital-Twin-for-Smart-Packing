@@ -3,6 +3,12 @@ from ortools.sat.python import cp_model
 
 
 def start_smart_packing(vol_pack, dist_pack, cap_truck):
+
+    print(vol_pack)
+    print(dist_pack)
+    print(cap_truck)
+
+    
     data = {}
     data['weights'] = vol_pack
     data['values'] = dist_pack
@@ -67,10 +73,11 @@ def start_smart_packing(vol_pack, dist_pack, cap_truck):
         print(f'Total packed weight: {total_weight}')
     else:
         print('The problem does not have an optimal solution.')
+    return "OK"
 
 
 if __name__ == '__main__':
     vol_pack = [48, 30, 42, 36, 36, 48, 42, 42, 36, 24, 30, 30, 42, 36, 36]
     dist_pack = [10, 30, 25, 50, 35, 30, 15, 40, 30, 35, 45, 10, 20, 30, 25]
     cap_truck = [100,  200, 100, 300, 100]
-    start_smart_packing(vol_pack, dist_pack, cap_truck)
+    x = start_smart_packing(vol_pack, dist_pack, cap_truck)
