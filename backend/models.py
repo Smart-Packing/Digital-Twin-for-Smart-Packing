@@ -1,16 +1,15 @@
 """Data models."""
 from app import db
 
-
-class User(db.Model):
-    """Data model for user accounts."""
+class package(db.Model):
+    """Data model for packages."""
 
     __tablename__ = 'package'
     id = db.Column(
         db.Integer,
         primary_key=True
     )
-    length = db.Column(
+    depth = db.Column(
         db.String(64),
         index=False,
         unique=True,
@@ -22,7 +21,7 @@ class User(db.Model):
         unique=True,
         nullable=False
     )
-    width = db.Column(
+    height = db.Column(
         db.String(80),
         index=True,
         unique=True,
@@ -35,5 +34,8 @@ class User(db.Model):
         nullable=False
     )
 
-    def __repr__(self):
-        return '<User {}>'.format(self.username)
+    def __init__(self, depth, width, height,destination):
+        self.depth = depth
+        self.width = width
+        self.height = height
+        self.destination = destination
