@@ -17,11 +17,9 @@ The algorithm is quite simple:
 ### X-Y Dimension detection of object
 Scanning x and y dimension of the object using the camera
 
-
-
-
-
 https://user-images.githubusercontent.com/6372010/164974398-499bc5e8-b3c1-4fa1-8c3d-bc0c7e5b96e8.mov
 
 
+### Truck Route Planning using Vehicle Routing Problem, Travelling Salesman Pproblem and Smart Packaging Solution using 2D Knapsack Problem
 
+<img width="1096" alt="Screenshot 2022-04-24 at 14 01 06" src="https://user-images.githubusercontent.com/17596445/164975469-8ce897b3-1b73-492c-80ae-5b07ec68f5a1.png">
